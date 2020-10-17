@@ -3,5 +3,6 @@
     public interface IXmlDataProvider
     {
         string FilePath { get; }
+        string AuthSecret { get; }
     }
 }

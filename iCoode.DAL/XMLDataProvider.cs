@@ -9,7 +9,9 @@ namespace iCoode.DAL
     public class XmlDataProvider : IXmlDataProvider
     {
         public string FilePath => @".\\\\.\\iCoode.config.xml";
-        
+
+        public string AuthSecret => _configuration.Root.Elements("Authorization").First().Attribute("secret").Value;
+
         private XDocument _configuration;
 
         public XmlDataProvider()
