@@ -1,0 +1,27 @@
+﻿using System;
+using iCoode.Core.Interfaces.DAL;
+using System.Linq;
+using System.Xml;
+using System.Xml.Linq;
+
+namespace iCoode.DAL
+{
+    public class XmlDataProvider : IXmlDataProvider
+    {
+        public string FilePath => @".\\\\.\\iCoode.config.xml";
+        
+        private XDocument _configuration;
+
+        public XmlDataProvider()
+        {
+            LoadConfiguration();
+        }
+
+        private void LoadConfiguration()
+        {
+            _configuration = XDocument.Load(FilePath);
+            if(_configuration == null)
+                throw new XmlException("Cannot read xml file");
+        }
+    }
+}

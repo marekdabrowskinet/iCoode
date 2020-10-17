@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iCoode", "iCoode\iCoode.csproj", "{8FCB20DA-99C1-40D1-BD0B-D4FBEC3DEC8F}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ClientApp(1)", "ClientApp\", "{73EE179C-5A88-43B9-A770-85B0B55B2A76}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ClientApp", "ClientApp\", "{73EE179C-5A88-43B9-A770-85B0B55B2A76}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_58097"
@@ -26,6 +26,10 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ClientApp(1)", "ClientApp\"
 		SlnRelativePath = "ClientApp\"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iCoode.Core", "iCoode.Core\iCoode.Core.csproj", "{FD2D011D-4B14-4863-8615-9FE4FF08BD25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iCoode.DAL", "iCoode.DAL\iCoode.DAL.csproj", "{6E7BDFD3-5D61-44BB-AF63-A1C35D35BA8C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +44,14 @@ Global
 		{73EE179C-5A88-43B9-A770-85B0B55B2A76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73EE179C-5A88-43B9-A770-85B0B55B2A76}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{73EE179C-5A88-43B9-A770-85B0B55B2A76}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{FD2D011D-4B14-4863-8615-9FE4FF08BD25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD2D011D-4B14-4863-8615-9FE4FF08BD25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD2D011D-4B14-4863-8615-9FE4FF08BD25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD2D011D-4B14-4863-8615-9FE4FF08BD25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E7BDFD3-5D61-44BB-AF63-A1C35D35BA8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E7BDFD3-5D61-44BB-AF63-A1C35D35BA8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E7BDFD3-5D61-44BB-AF63-A1C35D35BA8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E7BDFD3-5D61-44BB-AF63-A1C35D35BA8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
