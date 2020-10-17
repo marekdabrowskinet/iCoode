@@ -7,9 +7,9 @@ namespace iCoode.Core.Interfaces.Services
     {
         Task<bool> IsExistsAsync(string username);
         Task<User> AuthenticateAsync(User request);
-        Task<bool> RegisterAsync(User employee);
+        Task<bool> RegisterAsync(User user);
         Task<bool> VerifyPasswordAsync(string username, string password);
-        void ChangePassword(ref User employee);
+        void ChangePassword(ref User user);
         string EncodePassword(string password);
     }
 }

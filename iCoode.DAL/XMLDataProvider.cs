@@ -12,6 +12,8 @@ namespace iCoode.DAL
 
         public string AuthSecret => _configuration.Root.Elements("Authorization").First().Attribute("secret").Value;
 
+        public string ConnectionString => _configuration.Root.Elements("DatabaseConnectionString").First().Attribute("connectionString").Value;
+
         private XDocument _configuration;
 
         public XmlDataProvider()
