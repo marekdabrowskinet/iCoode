@@ -23,14 +23,7 @@ namespace iCoode.Controllers
         [HttpPost]
         public async Task<IActionResult> SignIn([FromBody] AuthenticationRequest request)
         {
-            try
-            {
-                return Ok(await _authService.AuthenticateAsync(request));
-            }
-            catch (Exception e)
-            {
-                return Ok(e.Message);
-            }
+            return Ok(await _authService.AuthenticateAsync(request));
         }
     }
 }
