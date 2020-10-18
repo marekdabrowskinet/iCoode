@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Configuration>
-  <Authorization secret="BGyutgbuyGUBYuybtuytbyUTB6r57346c6@asd@@scd@2#@!L" />
+  <Authorization
+    secret="BGyutgbuyGUBYuybtuytbyUTB6r57346c6@asd@@scd@2#@!L"
+    allowEmptyPassword="true"/>
   <DatabaseConnectionString connectionString="Host=localhost;Port=5432;Database=iCoode_external_software;Username=externalSoftware;Password=zaq1@WSX" />
 </Configuration>

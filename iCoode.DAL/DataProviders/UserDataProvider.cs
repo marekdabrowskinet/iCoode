@@ -9,7 +9,7 @@ namespace iCoode.DAL.DataProviders
     {
         public async Task<User> ReadAsync(string login)
         {
-            return await context.Users.FirstOrDefaultAsync(u => u.Login == login);
+            return await context.Users.FirstOrDefaultAsync(u => u.Username == login);
         }
     }
 }

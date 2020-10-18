@@ -8,9 +8,10 @@ namespace iCoode.DAL
 {
     public class XmlDataProvider : IXmlDataProvider
     {
-        public string FilePath => @".\\\\.\\iCoode.config.xml";
+        public string FilePath => @"..\\\\.\\iCoode.Config.xml";
 
         public string AuthSecret => _configuration.Root.Elements("Authorization").First().Attribute("secret").Value;
+        public bool AllowEmptyPassword => bool.Parse(_configuration.Root.Elements("Authorization").First().Attribute("allowEmptyPassword").Value);
 
         public string ConnectionString => _configuration.Root.Elements("DatabaseConnectionString").First().Attribute("connectionString").Value;
 

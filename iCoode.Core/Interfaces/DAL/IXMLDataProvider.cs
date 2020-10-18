@@ -4,5 +4,6 @@
     {
         string FilePath { get; }
         string AuthSecret { get; }
+        bool AllowEmptyPassword { get; }
     }
 }
