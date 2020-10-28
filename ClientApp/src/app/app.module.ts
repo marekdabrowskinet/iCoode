@@ -13,7 +13,6 @@ import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/presentation/dashboard.component';
 import { CoreModule } from './core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FlexLayoutModule } from '@angular/flex-layout/typings/module';
 
 @NgModule({
   declarations: [
@@ -29,7 +28,6 @@ import { FlexLayoutModule } from '@angular/flex-layout/typings/module';
     FormsModule,
     BrowserAnimationsModule,
     CoreModule,
-    FlexLayoutModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
