@@ -27,6 +27,9 @@ namespace iCoode.Auth
 
         public async Task<AuthenticationResponse> AuthenticateAsync(AuthenticationRequest request)
         {
+            if (string.IsNullOrEmpty(request.Username))
+                throw new UserException("Username cannot be empty");
+            
             if(!await IsExistsAsync(request.Username))
                 throw new UserException("User not exist");
 

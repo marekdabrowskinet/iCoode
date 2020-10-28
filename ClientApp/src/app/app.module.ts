@@ -1,3 +1,4 @@
+import { MenuComponent } from './menu/presentation/menu.component';
 import { GlobalErrorHandler } from './core/global-error-handler';
 import { SignInComponent } from './authentication/sign-in/sign-in.component';
 import { AuthenticationService } from './authentication/auth.service';
@@ -12,12 +13,14 @@ import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/presentation/dashboard.component';
 import { CoreModule } from './core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout/typings/module';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignInComponent,
-    DashboardComponent
+    DashboardComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    CoreModule
+    CoreModule,
+    FlexLayoutModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
