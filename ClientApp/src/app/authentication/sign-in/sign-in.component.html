@@ -1,14 +1,14 @@
-<!-- <mat-grid-list cols="1">
+<mat-grid-list cols="1">
   <div layout-align="center center">
     <form #signInForm>
       <mat-form-field appearance="legacy" >
         <mat-label>Login</mat-label>
-        <input required matInput [(ngModel)]="employee.username" name="username">
+        <input required matInput [(ngModel)]="user.username" name="username">
       </mat-form-field>
       <br>
       <mat-form-field appearance="legacy">
         <mat-label>Hasło</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="employee.password" name="password">
+        <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="user.password" name="password">
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
@@ -16,12 +16,6 @@
       <br>
       <button mat-raised-button color="primary" (click)="signIn()">Zaloguj się</button>
       <br>
-      <info-box *ngIf="error" [info]="error"></info-box>
     </form>
   </div>
-</mat-grid-list> -->
-<form #signInForm>
-    <input required [(ngModel)]="user.username" name="username">
-    <input [type]="hide ? 'password' : 'text'" [(ngModel)]="user.password" name="password">
-  <button  color="primary" (click)="signIn()">Zaloguj się</button>
-</form>
+</mat-grid-list>
