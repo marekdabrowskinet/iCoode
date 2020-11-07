@@ -1,7 +1,9 @@
+import { SharedService } from './../../core/shared.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../auth.service';
 import { User } from '../user.model';
+import { DialogService } from 'src/app/core/dialogs/dialog.service';
 
 
 @Component({
@@ -14,17 +16,19 @@ export class SignInComponent implements OnInit {
     user: User = new User();
 
     constructor(private authenticationService: AuthenticationService,
-                private router: Router) {
+                private dialogService: DialogService,
+                private router: Router,
+                private sService: SharedService) {
     }
 
     ngOnInit() {
   }
 
     async signIn() {
-      //this.error = undefined;
+      this.sService.isBusy.emit('Trwa logowanie');
       await this.authenticationService.signIn(this.user.username, this.user.password);
+      this.sService.isBusy.emit();
       if (this.authenticationService.userIsLogged()) {
-        alert('ok');
         //this.openSnackBar('Pomyślnie zalogowano do aplikacji.');
         this.router.navigate(['/']);
         //this.sharedService.onEmployeeLogged.emit(true);

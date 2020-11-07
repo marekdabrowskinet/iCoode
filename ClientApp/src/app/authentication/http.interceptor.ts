@@ -3,10 +3,12 @@ import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/c
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { AuthenticationService } from './auth.service';
+import { DialogService } from '../core/dialogs/dialog.service';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
-    constructor(private authenticationService: AuthenticationService) { }
+    constructor(private authenticationService: AuthenticationService,
+                private dialogService: DialogService) { }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return next.handle(request).pipe(catchError(err => {
@@ -15,7 +17,7 @@ export class ErrorInterceptor implements HttpInterceptor {
                 this.authenticationService.signOut();
                 location.reload(true);
             } else if (err.status === 500) {
-              alert(err.error);
+              this.dialogService.openInfoDialog(err.error);
             }
 
             const error = err.error.message || err.statusText;

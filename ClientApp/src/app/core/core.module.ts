@@ -1,3 +1,4 @@
+import { SpinnerComponent } from './spinner/spinner.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -26,9 +27,14 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatListModule } from '@angular/material/list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { SharedService } from './shared.service';
+import { DialogService } from './dialogs/dialog.service';
+import { InfoDialogComponent } from './dialogs/info-dialog/info-dialog.component';
 
 @NgModule({
   declarations: [
+    SpinnerComponent,
+    InfoDialogComponent
   ],
   imports:  [
     CommonModule,
@@ -63,6 +69,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatProgressSpinnerModule,
   ],
   entryComponents: [
+    InfoDialogComponent
   ],
   exports: [
     CommonModule,
@@ -96,9 +103,12 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatListModule,
     MatProgressSpinnerModule,
     MatGridListModule,
+    SpinnerComponent
   ],
   providers: [
     MatDatepickerModule,
+    SharedService,
+    DialogService
   ]
 })
 export class CoreModule {

@@ -6,7 +6,7 @@ import { DashboardComponent } from './dashboard/presentation/dashboard.component
 
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', component: DashboardComponent, canActivate:[AuthGuard]},
+  { path: '', pathMatch: 'full', component: DashboardComponent, canActivate: [AuthGuard]},
   { path: 'Sign-in', component: SignInComponent }
 ];
 
