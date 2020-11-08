@@ -1,9 +1,10 @@
-import { TimesheetComponent } from './timesheet/presentation/timesheet.component';
-import { AuthGuard } from './authentication/auth.guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './authentication/auth.guard';
 import { SignInComponent } from './authentication/sign-in/sign-in.component';
 import { DashboardComponent } from './dashboard/presentation/dashboard.component';
+import { TimesheetComponent } from './timesheet/presentation/timesheet.component';
+
 
 
 const routes: Routes = [
@@ -17,3 +18,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
