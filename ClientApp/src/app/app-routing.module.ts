@@ -1,3 +1,4 @@
+import { TimesheetComponent } from './timesheet/presentation/timesheet.component';
 import { AuthGuard } from './authentication/auth.guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -7,6 +8,7 @@ import { DashboardComponent } from './dashboard/presentation/dashboard.component
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: DashboardComponent, canActivate: [AuthGuard]},
+  { path: 'Timesheet', component: TimesheetComponent, canActivate: [AuthGuard]},
   { path: 'Sign-in', component: SignInComponent }
 ];
 

@@ -1,18 +1,15 @@
-<div class="example-container">
-  <mat-toolbar color="primary" class="example-toolbar">
-    <button mat-icon-button><mat-icon>menu</mat-icon></button>
-    <h1 class="example-app-name">Responsive App</h1>
-  </mat-toolbar>
-
-  <mat-sidenav-container class="example-sidenav-container">
-    <mat-sidenav #menu [mode]="'side'" [opened]='true'>
-      <mat-nav-list>
-        <a>Test2</a>
-      </mat-nav-list>
-    </mat-sidenav>
-
-    <mat-sidenav-content>
-      <p>test</p>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+<div>
+  <button mat-button
+  style="width: 100%;">
+  <mat-icon>more_time</mat-icon>
+  Czas pracy</button>
+  <button
+  mat-raised-button
+  color="warn"
+  style="width: 100%;"
+  (click)="this.authService.signOut()"
+  >
+  <mat-icon>cancel</mat-icon>
+  Wyloguj się
+  </button>
 </div>

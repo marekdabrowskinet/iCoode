@@ -1,3 +1,4 @@
+import { AuthenticationService } from './../../authentication/auth.service';
 import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
 
 @Component({
@@ -6,7 +7,7 @@ import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
   templateUrl: './menu.component.html'
 })
 export class MenuComponent implements OnInit{
-    constructor() {
+    constructor(public authService: AuthenticationService) {
     }
   ngOnInit(): void {
   }
