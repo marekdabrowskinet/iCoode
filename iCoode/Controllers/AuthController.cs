@@ -25,5 +25,11 @@ namespace iCoode.Controllers
         {
             return Ok(await _authService.AuthenticateAsync(request));
         }
+
+        [HttpGet]
+        public IActionResult IsUserLogged()
+        {
+            return Ok(true);
+        }
     }
 }

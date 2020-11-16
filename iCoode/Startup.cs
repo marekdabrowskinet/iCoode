@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using iCoode.Auth;
 using iCoode.Core.Interfaces.DAL;
 using iCoode.Core.Interfaces.Services;
+using iCoode.Core.Services;
 using iCoode.DAL;
 using iCoode.DAL.DataProviders;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -59,6 +60,8 @@ namespace iCoode
             // Dependency injection
             services.AddScoped<IXmlDataProvider, XmlDataProvider>();
             services.AddScoped<IUserDataProvider, UserDataProvider>();
+            services.AddScoped<IContractDataProvider, ContractDataProvider>();
+            services.AddScoped<IContractService, ContractService>();
             services.AddScoped<IAuthService, AuthService>();
         }
 

@@ -1,0 +1,58 @@
+<div>
+  <div id="contracts">
+    <table mat-table [dataSource]="tableItems"  style="width:100%">
+
+      <ng-container matColumnDef="number">
+        <th mat-header-cell *matHeaderCellDef> Numer </th>
+        <td mat-cell *matCellDef="let element" [matMenuTriggerFor]="menu" [matMenuTriggerData]="{id: element.id}"> {{element.number}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Opis </th>
+        <td mat-cell *matCellDef="let element" [matMenuTriggerFor]="menu" [matMenuTriggerData]="{id: element.id}"> {{element.description}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="hourlyRate">
+        <th mat-header-cell *matHeaderCellDef> Stawka godzinowa </th>
+        <td mat-cell *matCellDef="let element" [matMenuTriggerFor]="menu" [matMenuTriggerData]="{id: element.id}"> {{element.hourlyRate}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+    </table>
+  </div>
+  <div id="details">
+    <h4 *ngIf="!this.isEdit" >Dodaj nową umowę</h4>
+    <h4 *ngIf="this.isEdit" >Edytujesz umowę</h4>
+    <mat-grid-list cols="6" rowHeight="65px">
+      <mat-grid-tile [colspan]="2">
+        <mat-form-field appearance="outline">
+          <mat-label>Numer umowy</mat-label>
+          <input required matInput [(ngModel)]="this.contract.number">
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="2">
+        <mat-form-field appearance="outline">
+          <mat-label>Opis</mat-label>
+          <input required matInput [(ngModel)]="this.contract.description">
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Stawka </mat-label>
+          <input required type="number" min="1" step="1" matInput [(ngModel)]="this.contract.hourlyRate">
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-raised-button color="primary" (click)="addContract()"  *ngIf="!this.isEdit">Dodaj</button>
+        <button mat-raised-button color="primary" (click)="updateContract()"  *ngIf="this.isEdit">Zapisz</button>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>
+<mat-menu #menu="matMenu">
+  <ng-template matMenuContent let-id="id">
+    <button mat-menu-item (click)="editContract(id)" ><mat-icon>edit</mat-icon> Edytuj</button>
+    <button mat-menu-item (click)="deleteContract(id)" ><mat-icon>delete</mat-icon> Usuń</button>
+  </ng-template>
+</mat-menu>

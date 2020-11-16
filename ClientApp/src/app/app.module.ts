@@ -1,3 +1,4 @@
+import { ContractService } from './contracts/business-logic/contract.service';
 import { TimesheetComponent } from './timesheet/presentation/timesheet.component';
 import { MenuComponent } from './menu/presentation/menu.component';
 import { GlobalErrorHandler } from './core/global-error-handler';
@@ -14,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/presentation/dashboard.component';
 import { CoreModule } from './core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ContractsComponent } from './contracts/presentation/contracts.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SignInComponent,
     DashboardComponent,
     MenuComponent,
-    TimesheetComponent
+    TimesheetComponent,
+    ContractsComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: ErrorHandler, useClass: GlobalErrorHandler },
-    AuthenticationService
+    AuthenticationService,
+    ContractService
   ],
   bootstrap: [AppComponent]
 })

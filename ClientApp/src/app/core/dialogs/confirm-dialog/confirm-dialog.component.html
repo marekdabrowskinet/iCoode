@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>{{ message }}</h1>
+<mat-grid-list cols="2" rowHeight="40px">
+  <mat-grid-tile>
+    <button mat-flat-button color="warn" (click)="close(false)">Nie</button>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <button mat-flat-button color="primary" (click)="close(true)" cdkFocusInitial >Tak</button>
+  </mat-grid-tile>
+</mat-grid-list>

@@ -30,15 +30,20 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SharedService } from './shared.service';
 import { DialogService } from './dialogs/dialog.service';
 import { InfoDialogComponent } from './dialogs/info-dialog/info-dialog.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { ConfirmDialogComponent } from './dialogs/confirm-dialog/confirm-dialog.component';
+
 
 @NgModule({
   declarations: [
     SpinnerComponent,
-    InfoDialogComponent
+    InfoDialogComponent,
+    ConfirmDialogComponent
   ],
   imports:  [
     CommonModule,
     FormsModule,
+    MatMenuModule,
     MatIconModule,
     MatToolbarModule,
     MatFormFieldModule,
@@ -69,12 +74,14 @@ import { InfoDialogComponent } from './dialogs/info-dialog/info-dialog.component
     MatProgressSpinnerModule,
   ],
   entryComponents: [
-    InfoDialogComponent
+    InfoDialogComponent,
+    ConfirmDialogComponent
   ],
   exports: [
     CommonModule,
     MatTabsModule,
     FormsModule,
+    MatMenuModule,
     MatIconModule,
     MatToolbarModule,
     MatFormFieldModule,
