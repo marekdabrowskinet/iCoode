@@ -1,0 +1,5 @@
+<div id="summary">
+  <h4>Podsumowanie miesiąca {{this.dateString}} <button *ngIf="this.currentTimesheet.cost > 0" mat-raised-button color="warn"  style="width: 20%!important; margin-left:10%" (click)="this.print()" >Drukuj arkusze</button></h4>
+  <h5>Liczba przepracowanych godzin : {{this.worksSummary}}</h5>
+  <h5>Wartość miesiąca : {{this.currentTimesheet.cost}} zł brutto</h5>
+</div>

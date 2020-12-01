@@ -1,2 +1,16 @@
 <div>
+  <app-timesheet-calendar
+    [currentTimesheet]="this.currentTimesheet"
+    (onSelectDay)="this.selectedDay = $event"
+    (onSelectTimesheet)="this.currentTimesheet = $event">
+  </app-timesheet-calendar>
+
+  <app-timesheet-month-summary
+    [currentTimesheet]="this.currentTimesheet">
+  </app-timesheet-month-summary>
+
+  <app-timesheet-day
+    [selectedDay]="this.selectedDay"
+    (onAddWork)="this.calendar.refreshTimesheet()">
+  </app-timesheet-day>
 </div>
