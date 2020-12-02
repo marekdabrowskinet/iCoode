@@ -1,5 +1,30 @@
 <div id="summary">
   <h4>Podsumowanie miesiąca {{this.dateString}} <button *ngIf="this.currentTimesheet.cost > 0" mat-raised-button color="warn"  style="width: 20%!important; margin-left:10%" (click)="this.print()" >Drukuj arkusze</button></h4>
-  <h5>Liczba przepracowanych godzin : {{this.worksSummary}}</h5>
-  <h5>Wartość miesiąca : {{this.currentTimesheet.cost}} zł brutto</h5>
+  <table mat-table [dataSource]="tableItems"  style="width:95%;">
+
+    <ng-container matColumnDef="number">
+      <th mat-header-cell *matHeaderCellDef> Numer umowy </th>
+      <td mat-cell *matCellDef="let element"> {{element.contract.number}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="workTime">
+      <th mat-header-cell *matHeaderCellDef> Przepracowane godziny </th>
+      <td mat-cell *matCellDef="let element" > {{element.wokrTime}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="cost">
+      <th mat-header-cell *matHeaderCellDef> Wartość </th>
+      <td mat-cell *matCellDef="let element" > {{(element.wokrTime * element.contract.hourlyRate) | number:'1.1-2'}} zł brutto</td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> </th>
+      <td mat-cell *matCellDef="let element" >
+        <button *ngIf="this.currentTimesheet.cost > 0" mat-raised-button color="warn"  style="width: 50%!important; margin-left:10%" (click)="this.print(element.contract)" >Drukuj arkusz</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+  </table>
 </div>

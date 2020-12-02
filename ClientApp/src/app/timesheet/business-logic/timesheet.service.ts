@@ -1,3 +1,4 @@
+import { ContractSummary } from './../models/contract-summary.model';
 import { TimesheetDay } from './../models/timesheet-day.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -122,12 +123,23 @@ export class TimesheetService {
     return sum;
   }
 
-  calculateWorksSumPerMonth(timesheet: Timesheet): number {
-    let sum = 0;
-    timesheet.days.forEach(d => {
-      sum += this.calculateWorksSumPerDay(d.works);
+  calculateWorksSumPerMonth(timesheet: Timesheet): ContractSummary[] {
+    const result: ContractSummary[] = [];
+    this.getUsedContracts(timesheet).forEach(contract => {
+      let hours = 0;
+      timesheet.days.forEach(day => {
+        day.works.forEach(work => {
+          if (work.contract.id === contract.id) {
+            hours += work.hoursWorked;
+          }
+        });
+      });
+      const summary = new ContractSummary();
+      summary.contract = contract;
+      summary.wokrTime = hours;
+      result.push(summary);
     });
-    return sum;
+    return result;
   }
 
   calculateAvailableTimePerDay(day: TimesheetDay): number {
