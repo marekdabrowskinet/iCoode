@@ -62,6 +62,8 @@ namespace iCoode
             services.AddScoped<IUserDataProvider, UserDataProvider>();
             services.AddScoped<IContractDataProvider, ContractDataProvider>();
             services.AddScoped<IContractService, ContractService>();
+            services.AddScoped<ITimesheetDataProvider, TimesheetDataProvider>();
+            services.AddScoped<ITimesheetService, TimesheetService>();
             services.AddScoped<IAuthService, AuthService>();
         }
 

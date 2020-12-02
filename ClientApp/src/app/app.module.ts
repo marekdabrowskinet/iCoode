@@ -16,6 +16,11 @@ import { DashboardComponent } from './dashboard/presentation/dashboard.component
 import { CoreModule } from './core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContractsComponent } from './contracts/presentation/contracts.component';
+import { TimesheetService } from './timesheet/business-logic/timesheet.service';
+import { TimesheetDayComponent } from './timesheet/presentation/timesheet-day/timesheet-day.component';
+import { TimesheetMonthSummaryComponent } from './timesheet/presentation/timesheet-month-summary/timesheet-month-summary.component';
+import { TimesheetCalendarComponent } from './timesheet/presentation/timesheet-calendar/timesheet-calendar.component';
+import { DatePipe } from '@angular/common'
 
 @NgModule({
   declarations: [
@@ -24,6 +29,9 @@ import { ContractsComponent } from './contracts/presentation/contracts.component
     DashboardComponent,
     MenuComponent,
     TimesheetComponent,
+    TimesheetDayComponent,
+    TimesheetMonthSummaryComponent,
+    TimesheetCalendarComponent,
     ContractsComponent
   ],
   imports: [
@@ -39,7 +47,9 @@ import { ContractsComponent } from './contracts/presentation/contracts.component
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: ErrorHandler, useClass: GlobalErrorHandler },
     AuthenticationService,
-    ContractService
+    ContractService,
+    TimesheetService,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

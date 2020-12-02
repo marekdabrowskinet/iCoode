@@ -20,5 +20,8 @@ namespace iCoode.DAL
 
         public DbSet<User> Users { get; set; }
         public DbSet<Contract> Contracts { get; set; }
+        public DbSet<Timesheet> Timesheets { get; set; }
+        public DbSet<TimesheetDay> TimesheetDays { get; set; }
+        public DbSet<TimesheetWork> TimesheetWorks { get; set; }
     }
 }

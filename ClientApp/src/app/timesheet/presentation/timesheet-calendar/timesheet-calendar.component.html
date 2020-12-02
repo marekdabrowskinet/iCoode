@@ -1,0 +1,33 @@
+<div id="sheet">
+  <div id="header">
+    <button mat-mini-fab color="primary" id="leftArrow" (click)="this.changeTimesheet('previous')"  >
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+    {{this.dateString}}
+    <button mat-mini-fab color="primary" id="rightArrow" (click)="this.changeTimesheet('next')">
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+  </div>
+  <div id="sheetContent">
+      <table mat-table [dataSource]="tableItems"  style="width:95%;">
+
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef> Data </th>
+          <td mat-cell *matCellDef="let element" (click)="this.selectDay(element)" [ngClass]="this.getCssClass(element)"> {{element.date | date: 'dd-MM-yyyy'}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="workTime">
+          <th mat-header-cell *matHeaderCellDef> Przepracowane godziny </th>
+          <td mat-cell *matCellDef="let element" (click)="this.selectDay(element)" [ngClass]="this.getCssClass(element)"> {{element.worksSum}} / 24</td>
+        </ng-container>
+
+        <ng-container matColumnDef="comments">
+          <th mat-header-cell *matHeaderCellDef> Uwagi </th>
+          <td mat-cell *matCellDef="let element" (click)="this.selectDay(element)" [ngClass]="this.getCssClass(element)"> {{element.comments}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+      </table>
+  </div>
+</div>

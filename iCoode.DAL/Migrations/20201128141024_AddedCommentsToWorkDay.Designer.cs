@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using iCoode.DAL;
@@ -9,9 +10,10 @@ using iCoode.DAL;
 namespace iCoode.DAL.Migrations
 {
     [DbContext(typeof(iCoodeContext))]
-    partial class iCoodeContextModelSnapshot : ModelSnapshot
+    [Migration("20201128141024_AddedCommentsToWorkDay")]
+    partial class AddedCommentsToWorkDay
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
